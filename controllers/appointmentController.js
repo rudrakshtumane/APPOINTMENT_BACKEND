@@ -83,11 +83,21 @@ async function updateAppointment(req,res){
     }
 };
 
+async function deleteAppointment(req,res){
+    try {
+        const result = await Appointment.findByIdAndDelete(req.params.id);
+        return res.status(200).send({message: "Appointment deleted successfully", result});
+    } catch (error) {
+        return res.status(500).send(error);
+    }
+}
+
 module.exports = {
     addAppointment,
     getAppointmentByPatientId,
     getAppointmentByDoctorId,
     getAllAppointments,
-    updateAppointment
+    updateAppointment,
+    deleteAppointment
 
 }

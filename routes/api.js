@@ -33,6 +33,7 @@ router.get('/getAppointmentByDoctorId', appointmentController.getAppointmentByDo
 
 router.put('/updateAppointment/:id', appointmentController.updateAppointment);
 
+router.delete('/deleteAppointment/:id', appointmentController.deleteAppointment);
 
 module.exports = router;
 
